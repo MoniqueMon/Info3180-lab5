@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content/profiles.css') }}"/>
+
+
+{% block content %}
+<h3>Profiles</h3>
+    {% for UserInfo in data %}
+        <div class="pro">
+            <div class="profieimg">
+                <img src="{{ url_for('static', filename=uploads) }}" alt="Profile Image"/>
+            </div>
+            <div class="info">
+                <p id="FName">Name: {{ UserInfo.fname }}</p>
+                <p id="LName">{{ UserInfo.lname }}</p>
+                <p id="gender">Gender: {{ UserInfo.gender }}</p>
+                <p id="location">Location: {{ UserInfo.loc }}</p>
+            </div>
+            <div class="viewB">
+                <button name="View Profile" class="viewB">View Profile</button>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

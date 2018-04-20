@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content/profiles.css') }}"/>
+{% endblock %}
+
+{% block content %}
+<h3>Profiles</h3>
+    {% for UserInfo in data %}
+        <div class="pro1">
+            <div class="userimg">
+                <img src="{{ url_for('static', filename=imgloc) }}" alt="Profile Image"/>
+            </div>
+            <div class="info">
+                <p id="FName">Name: {{ user.fname }}</p>
+                <p id="LName">{{ user.lname }}</p>
+                <p id="Gender">Gender: {{ user.gender }}</p>
+                <p id="Loc">Location: {{ user.loc }}</p>
+            </div>
+            <div class="view">
+                <button name="viewP" class="viewB">View Profile</button>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

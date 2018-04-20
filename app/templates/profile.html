@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content/profile.css') }}"/>
+{% endblock %}
+
+<div class="login-form">
+    {% include 'flash_messages.html' %}
+    <h2> Add Profile</h2>
+    <form action="{{ url_for('profile') }}" method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="form_sect">
+            {{ form.fname.label }}
+            {{ form.fname(class='form-control', placeholder="Please Enter your first name") }}
+        </div>
+        <br/>
+        <div class="form_sect">
+            {{ form.lname.label }}
+            {{ form.lname(class='form-control', placeholder="Please Enter your last name") }}
+        </div>
+        
+        <div class="form_sect">
+            {{ form.mail.label }}
+            {{ form.mail(class='form-control', placeholder="Please Enter your email address") }}
+        </div>
+        
+        <div class="form_sect">
+            {{ form.gendr.label }}
+            {{ form.gendr }}
+        </div>
+        
+        <div class="form_sect">
+            {{ form.loc.label }}
+            {{ form.loc(class='form-control', placeholder="Please Enter your location") }}
+        </div>
+        
+        <div class="form_sect">
+            {{ form.bio.label }}
+            {{ form.bio(class='form-control', placeholder="Enter a short biography about yourself") }}
+        </div>
+       
+        <div class="form_sect">
+            {{ form.pic.label }}
+            {{ form.pic }}
+        </div>
+        <br />
+        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}
+    
